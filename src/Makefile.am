@@ -1,4 +1,4 @@
---include $(top_srcdir)/vala.mk
+-include $(top_srcdir)/vala.mk
 
 lib_LTLIBRARIES = libatest-@API_VERSION@.la
 
