@@ -1,10 +1,16 @@
--include $(top_srcdir)/vala.mk
+-include $(top_srcdir)/valalib.mk
 
-lib_LTLIBRARIES = libatest-@API_VERSION@.la
+VALA_TARGET = libatest-@API_VERSION@.la
 
-libatest_@API_VERSION@_la_SOURCES = \
+lib_LTLIBRARIES = $(VALA_TARGET)
+
+VALASOURCES = \
 	atest-namespace.vala \
 	atest.vala \
+	$(NULL)
+
+libatest_@API_VERSION@_la_SOURCES = \
+	$(VALA_CSOURCES) \
 	$(NULL)
 
 libatest_@API_VERSION@_la_CFLAGS = \
@@ -20,31 +26,19 @@ libatest_@API_VERSION@_la_LDFLAGS = \
 	$(WARN_LDFLAGS) \
 	$(NULL)
 
-libatest_@API_VERSION@_la_VALAFLAGS = \
+VALAFLAGS = \
 	--vapidir=$(VAPIDIR) \
 	--thread \
 	--target-glib=2.44 \
 	--pkg glib-2.0 \
-	-H atest.h \
-	--library atest-@API_VERSION@ \
 	$(NULL)
 
-atest.h : libatest-@API_VERSION@.la
-header_DATA=atest.h
-headerdir=$(includedir)/atest-@API_VERSION@/atest
+VALA_CHEADER = atest.h
 
-atest-@API_VERSION@.vapi : libatest-@API_VERSION@.la
+VALA_VAPI = atest-@API_VERSION@.vapi
 
 atest-@API_VERSION@.deps:
 	cp atest.deps atest-@API_VERSION@.deps
 
-vapi_DATA=atest-@API_VERSION@.vapi atest-@API_VERSION@.deps
-vapidir=$(VAPIDIR)
+VALA_DEPS = atest-@API_VERSION@.deps
 
-CLEANFILES=\
-	atest-@API_VERSION@.vapi \
-	atest-@API_VERSION@.deps \
-	atest.h \
-	$(NULL)
-
--include $(top_srcdir)/git.mk
