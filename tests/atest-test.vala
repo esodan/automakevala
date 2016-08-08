@@ -4,7 +4,7 @@
  * Copyright (C) 2016  Daniel Espinosa <esodan@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
+ * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
@@ -19,10 +19,14 @@
  * Authors:
  *      Daniel Espinosa <esodan@gmail.com>
  */
-using GLib;
 
-namespace Atest {
-	public class A {
-		public bool foo() { return false; }
-	}
+class AtestTest.Suite : Object
+{
+  static int main (string args[])
+  {
+    GLib.Intl.setlocale (GLib.LocaleCategory.ALL, "");
+    Test.init (ref args);
+    Case.add_funcs ();
+    return Test.run ();
+  }
 }

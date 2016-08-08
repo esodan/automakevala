@@ -4,7 +4,7 @@
  * Copyright (C) 2016  Daniel Espinosa <esodan@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
+ * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
@@ -19,10 +19,23 @@
  * Authors:
  *      Daniel Espinosa <esodan@gmail.com>
  */
+
 using GLib;
 
-namespace Atest {
-	public class A {
-		public bool foo() { return false; }
-	}
+public class AtestTest.Case {
+  public static void add_funcs ()
+  {
+    Test.add_func ("/atest/case/one",
+    ()=>{
+    try {
+      // Prepare your test scenario
+      
+      // Add asserts for each condition
+      assert (true);
+    } catch (GLib.Error e) {
+      GLib.message ("ERROR: "+e.message);
+      assert_not_reached ();
+    }
+    });
+  }
 }

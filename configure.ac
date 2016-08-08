@@ -114,6 +114,9 @@ AC_CONFIG_FILES([
 	data/Makefile
 	data/atest-$API_VERSION.pc:data/atest.pc.in
 
+	tests/Makefile
+	tests/test-config.vala
+
 	po/Makefile.in
 ],[],
 [API_VERSION='$API_VERSION'])

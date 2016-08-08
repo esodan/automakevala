@@ -1,10 +1,10 @@
-/* -*- Mode: vala; indent-tabs-mode: nil; c-basic-offset: 2; tab-width: 2 -*-  */
+/* -*- Mode: Vala; indent-tabs-mode: nil; c-basic-offset: 2; tab-width: 2 -*- */
 /* atest-test.vala
  *
  * Copyright (C) 2016  Daniel Espinosa <esodan@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public
+ * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
@@ -19,10 +19,12 @@
  * Authors:
  *      Daniel Espinosa <esodan@gmail.com>
  */
-using GLib;
-
-namespace Atest {
-	public class A {
-		public bool foo() { return false; }
-	}
+[CCode (cprefix = "", lower_case_cprefix = "", cheader_filename = "config.h")]
+namespace AtestTest {
+  // Use this variable when you want, for example, to read some file
+  // located in sources
+  public static const string TEST_DIR = "@top_srcdir@/tests";
+  // Use this variable when you want, for example, to read some file to be
+  // located in build directory
+  public static const string TEST_BUILD_DIR = "@top_builddir@/tests";
 }
