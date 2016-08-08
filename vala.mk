@@ -58,6 +58,7 @@ VALA_CSOURCES= \
   $(VALASOURCES:.vala=.c) \
   $(NULL)
 
+$(VALA_CSOURCES):vala-stamp
 
 EXTRA_DIST = \
 	$(VALASOURCES) \

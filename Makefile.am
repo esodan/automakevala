@@ -2,6 +2,13 @@ SUBDIRS = data src po
 
 EXTRA_DIST = AUTHORS
 
+
+# Define available flags
+DISTCHECK_CONFIGURE_FLAGS = \
+	--disable-introspection \
+	$(NULL)
+
+
 AUTHORS:
 	$(AM_V_GEN)if test -d "$(srcdir)/.git"; \
 	then \
@@ -22,12 +29,11 @@ dist-hook: dist-ChangeLog
 GITIGNOREFILES = \
 	**/*.swp \
 	*.o \
-	aclocal.m4 \
+	*.m4 \
 	build-aux \
 	ChangeLog \
 	config \
 	config.h.in \
-	gtk-doc.m4 \
 	gtk-doc.make \
 	INSTALL \
 	$(NULL)

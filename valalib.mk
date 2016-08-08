@@ -31,16 +31,17 @@ include $(top_srcdir)/vala.mk
 
 VALAFLAGS += \
 	-H $(VALA_CHEADER) \
-	--library $(VALA_VAPI) \
+	--vapi $(VALA_VAPI) \
+	--library=$(VALA_VAPI:.vapi=) \
 	$(NULL)
 
 # .h header file
-$(VALA_CHEADER): $(VALA_TARGET)
+$(VALA_CHEADER): vala-stamp
 vala_cheaderdir= $(includedir)/$(VALA_INCLUDEDIR)
 vala_cheader_HEADERS = $(VALA_CHEADER)
 
 # .vapi Vala API file
-$(VALA_VAPI): $(VALA_TARGET)
+$(VALA_VAPI): vala-stamp
 vala_vapidir = $(datadir)/vala/vapi
 dist_vala_vapi_DATA = \
 	$(VALA_VAPI) \
@@ -52,29 +53,3 @@ CLEANFILES += \
 	$(VALA_CHEADER) \
 	$(NULL)
 
-#if HAVE_INTROSPECTION
-
-### GObject Introspection
-# dlname:
-#   Extract our dlname like libfolks does, see bgo#658002 and bgo#585116
-#   This is what g-ir-scanner does.
-#dlname=\
-#	`$(SED) -nE "s/^dlname='([A-Za-z0-9.+-]+)'/\1/p" $(VALA_TARGET)`
-
-#VALAFLAGS += \
-#	--gir=$(INTROSPECTION_GIRS)
-
-#INTROSPECTION_COMPILER_ARGS += --includedir=. -l $(dlname)
-
-#$(INTROSPECTION_GIRS): $(VALA_TARGET)
-
-#$(INTROSPECTION_TYPELIBS): $(INTROSPECTION_GIRS)
-#	$(INTROSPECTION_COMPILER) $(INTROSPECTION_COMPILER_ARGS)  $< -o $@
-
-#girdir = $(INTROSPECTION_GIRDIR)
-#gir_DATA = $(INTROSPECTION_GIRS)
-#typelibdir = $(INTROSPECTION_TYPELIBDIR)
-#typelib_DATA = $(INTROSPECTION_TYPELIBS)
-#CLEANFILES += $(gir_DATA) $(typelib_DATA)
-
-#endif

@@ -41,14 +41,16 @@ VALA_VAPI = atest-@API_VERSION@.vapi
 atest-@API_VERSION@.deps:
 	cp atest.deps atest-@API_VERSION@.deps
 
+DISTCLEANFILES=atest.deps atest-@API_VERSION@.deps
+
 VALA_DEPS = atest-@API_VERSION@.deps
 
 if HAVE_INTROSPECTION
 
 include $(top_srcdir)/valalib_introspection.mk
 
-INTROSPECTION_GIRS = atest-@API_VERSION@.gir
-INTROSPECTION_TYPELIBS = atest-@API_VERSION@.typelib
+INTROSPECTION_GIRS = Atest-@API_VERSION@.gir
+INTROSPECTION_TYPELIBS = Atest-@API_VERSION@.typelib
 
 endif
 
