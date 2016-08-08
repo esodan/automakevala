@@ -43,3 +43,12 @@ atest-@API_VERSION@.deps:
 
 VALA_DEPS = atest-@API_VERSION@.deps
 
+if HAVE_INTROSPECTION
+
+-include $(top_srcdir)/valalib_introspection.mk
+
+INTROSPECTION_GIRS = atest-@API_VERSION@.gir
+INTROSPECTION_TYPELIBS = atest-@API_VERSION@.typelib
+
+endif
+
