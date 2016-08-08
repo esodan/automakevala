@@ -28,6 +28,7 @@
 -include $(top_srcdir)/git.mk
 
 NULL=
+VALAFLAGS=
 
 vala-stamp: $(VALASOURCES)
 	@rm -f vala-temp
@@ -67,7 +68,7 @@ GITIGNOREFILES = \
 	$(NULL)
 
 
-CLEANFILES += \
+CLEANFILES = \
 	vala-stamp \
 	$(VALASOURCES:.vala=.c) \
 	$(NULL)

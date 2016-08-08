@@ -34,7 +34,7 @@ dlname=\
 VALAFLAGS += \
 	--gir=$(INTROSPECTION_GIRS)
 
-INTROSPECTION_COMPILER_ARGS += --includedir=. -l $(dlname)
+INTROSPECTION_COMPILER_ARGS = --includedir=. -l $(dlname)
 
 $(INTROSPECTION_GIRS): $(VALA_TARGET)
 

@@ -1,4 +1,4 @@
--include $(top_srcdir)/valalib.mk
+include $(top_srcdir)/valalib.mk
 
 VALA_TARGET = libatest-@API_VERSION@.la
 
@@ -26,7 +26,7 @@ libatest_@API_VERSION@_la_LDFLAGS = \
 	$(WARN_LDFLAGS) \
 	$(NULL)
 
-VALAFLAGS = \
+VALAFLAGS += \
 	--vapidir=$(VAPIDIR) \
 	--thread \
 	--target-glib=2.44 \
@@ -45,7 +45,7 @@ VALA_DEPS = atest-@API_VERSION@.deps
 
 if HAVE_INTROSPECTION
 
--include $(top_srcdir)/valalib_introspection.mk
+include $(top_srcdir)/valalib_introspection.mk
 
 INTROSPECTION_GIRS = atest-@API_VERSION@.gir
 INTROSPECTION_TYPELIBS = atest-@API_VERSION@.typelib

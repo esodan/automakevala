@@ -26,7 +26,7 @@
 # --enable-instrospection switch on configure and define INTROSPECTION_GIRS
 # and INTROSPECTION_TYPELIBS. VALA_TARGET should be a library.
 
--include $(top_srcdir)/vala.mk
+include $(top_srcdir)/vala.mk
 
 
 VALAFLAGS += \
