@@ -115,7 +115,7 @@ AC_CONFIG_FILES([
 	data/atest-$API_VERSION.pc:data/atest.pc.in
 
 	tests/Makefile
-	tests/test-config.vala
+	tests/tests-config.vala
 
 	po/Makefile.in
 ],[],
