@@ -34,6 +34,7 @@ VALAFLAGS = \
 	$(NULL)
 
 VALA_CHEADER = atest.h
+VALA_INCLUDEDIR = atest-@API_VERSION@
 
 VALA_VAPI = atest-@API_VERSION@.vapi
 

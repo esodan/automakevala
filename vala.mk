@@ -27,6 +27,8 @@
 
 -include $(top_srcdir)/git.mk
 
+NULL=
+
 vala-stamp: $(VALASOURCES)
 	@rm -f vala-temp
 	@touch vala-temp
