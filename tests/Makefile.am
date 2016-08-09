@@ -2,7 +2,7 @@ include $(top_srcdir)/vala_tester.mk
 
 VALA_TARGET=atest_test
 
-noinst_PROGRAMS = $(TEST_PROGS)
+noinst_PROGRAMS = $(VALA_TARGET)
 
 VALASOURCES = \
 	tests-config.vala \
